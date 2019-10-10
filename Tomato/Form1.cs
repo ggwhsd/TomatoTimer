@@ -15,8 +15,9 @@ namespace Tomato
         public Form1()
         {
             InitializeComponent();
-            
-            
+            notifyIcon1.Icon = Resource1.a1;
+
+
         }
 
         private enum TomatoStatus
@@ -82,6 +83,8 @@ namespace Tomato
                     if (DoingStatus == TomatoStatus.EatingTomato)
                     {
                         UpdateLog("完成一个番茄时间");
+                        notifyIcon1.ShowBalloonTip(1000, "Tomato", "完成一个番茄时间", ToolTipIcon.Info);
+                      
                         goodTomato++;
                         if (RestCount % 2 == 0 && RestCount != 0)
                         {
@@ -91,24 +94,22 @@ namespace Tomato
                         {
                             switchShortRest();
                         }
-
                     }
                     else if (DoingStatus == TomatoStatus.HaveRest)
                     {
                         UpdateLog("完成5分钟休息");
+                        notifyIcon1.ShowBalloonTip(1000, "Tomato", "完成5分钟休息", ToolTipIcon.Info);
                         switchTomato();
                     }
                     else if (DoingStatus == TomatoStatus.HaveLongRest)
                     {
                         UpdateLog("完成15分钟休息");
+                        notifyIcon1.ShowBalloonTip(1000, "Tomato", "完成15分钟休息", ToolTipIcon.Info);
                         switchTomato();
                     }
-                    
                 }
             }
             UpdateStatistic();
-
-
         }
         private void UpdateStatistic()
         {
@@ -175,7 +176,8 @@ namespace Tomato
             timer1.Interval = 1000;
             button1.Text = "开始";
             DoingStatus = TomatoStatus.None;
-            UpdateLog("任务【" + textBox_task.Text + "】完成");
+            UpdateLog("完成任务【" + textBox_task.Text + "】");
+            notifyIcon1.ShowBalloonTip(1000, "Tomato", "完成任务【" + textBox_task.Text + "】", ToolTipIcon.Info);
             textBox_task.Text = "";
             
         }
