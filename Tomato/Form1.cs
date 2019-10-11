@@ -15,7 +15,7 @@ namespace Tomato
         public Form1()
         {
             InitializeComponent();
-            notifyIcon1.Icon = Resource1.a1;
+            notifyIcon1.Icon = Resource1.a2;
 
 
         }

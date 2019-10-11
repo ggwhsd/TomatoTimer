@@ -9,3 +9,4 @@ Run Env： Windows 10. Net 4.6
 
 ![UI](./readme/UI.JPG)
 
+2019.10.10 feature ： support side notification in the windows 10.
